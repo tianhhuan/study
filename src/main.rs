@@ -1,3 +1,5 @@
+
+
 fn main() {
     println!("Hello, world!");
     let a= 123;
@@ -79,6 +81,25 @@ fn main() {
         if leng1<0 {
             break;
         }
+    }
+    ///所有权
+    {
+        let ownership=11;
+        println!("ownership:{}",ownership);
+        let ownership_string=String::from("hello world!");
+        let ownership_string1=ownership_string;
+        //println!("ownership_string:{}",ownership_string) //value borrowed here after move
+        println!("ownership_string1:{}",ownership_string1);
+
+        let ownership_string2= ownership_string1.clone();
+        println!("ownership_string1:{}",ownership_string1);
+        println!("ownership_string2:{}",ownership_string2);
+
+        ///引用与租借
+
+        let lease = String::from(" lease ");
+        let lease1 = &lease;
+        println!("lease is {} , lease1 is {}",lease,lease1)
     }
 }
 ///无返回值
