@@ -99,7 +99,14 @@ fn main() {
 
         let lease = String::from(" lease ");
         let lease1 = &lease;
-        println!("lease is {} , lease1 is {}",lease,lease1)
+        println!("lease is {} , lease1 is {}",lease,lease1);
+
+        ///可变租借
+
+        let mut  lease2= String::from("可变租借");
+        let lease3 = &mut lease2;
+        lease3.push_str("aaa");
+        println!("可变租借：{}",lease3);
     }
 }
 ///无返回值
