@@ -1,5 +1,6 @@
 
 
+
 fn main() {
     println!("Hello, world!");
     let a= 123;
@@ -107,6 +108,84 @@ fn main() {
         let lease3 = &mut lease2;
         lease3.push_str("aaa");
         println!("可变租借：{}",lease3);
+
+
+
+
+        //// Rust Slice切片
+        let Slice = String::from("123456");
+
+        let Slice1 = &Slice[0..5];
+        let Slice=String::from("aaaaa");
+        println!("切片：{}",Slice1);
+        // for i in Slice1.iter() {
+        //     println!("for i:{}",i)
+        // }
+
+
+
+        /// 结构体
+
+        let site= Site{
+            id: String::from("11111"),
+            Name : String::from("aaaaa")
+        };
+        println!("结构体 site:{}",site.Name);
+
+        site.priId();
+
+        #[derive(Debug)]
+        // ////枚举类
+        // enum book{
+        //     Open(),
+        //     Close(String)
+        // }
+        // let  enum1= book::Open(String::from("open"));
+        enum book{
+            Open{name:String},
+            Close{name:String}
+        }
+        let  enum1= book::Open{name:String::from("设计")};
+        match enum1 {
+            book::Open {name }=>{
+                println!("{}",name)
+            },
+            book::Close {name}=>{
+                println!("{}",name)
+            }
+        }
+        //println!("enum1 :{:?}",enum1);
+        enum Option<T> {
+            Some(T),
+            None,
+        }
+        let opt:Option<&str>=Option::None;
+        match opt {
+            Option::Some(somehing)=>{
+                println!("{}",somehing)
+            }
+            Option::None=>{
+                println!("opt os nothing")
+            }
+        }
+
+        let match1=1;
+        match match1 {
+            10=>println!("10"),
+            _=>println!("_")
+        }
+        if let 1 = match1{
+            println!("1")
+        }
+    }
+}
+struct Site{
+    id : String,
+    Name : String,
+}
+impl Site{
+    fn priId(&self){
+        println!("this.Id:{}",self.id)
     }
 }
 ///无返回值
