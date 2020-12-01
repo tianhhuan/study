@@ -1,6 +1,8 @@
 
-
-
+mod module;
+use std::fs::File;
+mod tra; 
+use tra::trai::Des;
 fn main() {
     println!("Hello, world!");
     let a= 123;
@@ -177,6 +179,27 @@ fn main() {
         if let 1 = match1{
             println!("1")
         }
+    }
+    ///组织管理
+    {
+        module::module::myMod1::prin(String::from("a"))
+    }
+
+    /// 错误
+    let f = File::open("hello.txt");
+    match f {
+        Ok(file) => {
+            println!("File opened successfully.");
+        },
+        Err(err) => {
+            println!("Failed to open the file.");
+        }
+    }
+    //特性
+    {
+         let p=tra::trai::Person{name: String::from("aaa"),age : 1};
+        let p1= p.pri();
+        println!("特性{}",p1 ) ;
     }
 }
 struct Site{
